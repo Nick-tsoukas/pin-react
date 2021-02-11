@@ -3,7 +3,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 import React, { useState } from 'react';
-import { attributes, react as HomeContent } from '../content/home.md';
 
 // taks fix footer add icons 
 //  Make sure moblie resposive
@@ -36,20 +35,6 @@ export default function Home() {
         <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
       </Head>
-
-        <article>
-          <h1>{title}</h1>
-          <HomeContent />
-          <ul>
-            <li>Hello wold </li>
-            {cats.map((cat, k) => (
-              <li key={k}>
-                <h2>{cat.name}</h2>
-                <p>{cat.description}</p>
-              </li>
-            ))}
-          </ul>
-        </article>
     {/* pop up box */}
       <div className={`${isHidden ? styles.hidden : styles.box }`} >
         <div className={styles.intro_pop}>
