@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&display=swap');
 
+
 .container {
   min-height: 100vh;
   font-family: 'Oswald', sans-serif;
@@ -10,16 +11,25 @@
   display: flex;
 }
 
+.point:hover {
+  cursor: pointer;
+}
+
 .side_bar {
-  min-height: 100vh;
+  height: 100vh;
   color: black;
   background: #f87575;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 250px;
-  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+  width: 200px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    position: fixed;
 
+}
+
+.pink {
+  color: #f87575;
 }
 
 .logo_mine {
@@ -50,6 +60,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  margin-left: 250px;
 }
 
 .grid_four {
@@ -70,21 +81,28 @@
   background-position: center center;
   background-size: cover;
   border-bottom: 2px solid #f87575;
-  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);  
 }
-
 .img_2 {
+
   height: 200px;
   width: 300px;
   background-image: url('../public/food_2.jpg');
   background-position: center center;
   background-size: cover;
   border-bottom: 2px solid #f87575;
-  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+/* second main column with menu */
 }
 
-/* second main column with menu */
+.order_btn {
+ padding: 1em 1.5em;
+  border: 1px solid white;
+  color: white;
+  letter-spacing: 2px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 
+}
 .main_second {
   flex-grow: 1;
   display: flex;
@@ -95,9 +113,9 @@
 .menu {
   height: 80%;
   background-color: #f87575;
-  width: 80%;
-  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
-  z-index: 999;
+  width: 90%;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    z-index: 999;
 }
 
 .menu_heading {
@@ -109,21 +127,27 @@
   margin-bottom: 0;
 }
 
+
 .event {
-  height: 60%;
-  width: 80%;
+  height: auto;
+  width: 90%;
   background: rgba(0, 0, 0, 0.885);
-  margin-left: auto;
-  margin-right: -2em;
   z-index: -999;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2em;
   margin-top: -4em;
   padding-top: 4em;
-  padding-left: 2em;
+  padding-left: 1em;
+  padding-bottom: 4em;
   color: white;
+}
+.order_btn {
+  margin-left: 2em;
 }
 
 .inner_event {
-  margin-left: 3em;
+  margin-left: 2em;
 }
 
 .date {
@@ -135,9 +159,19 @@
   height: 2px;
   background: white;
   margin-top: 1em;
+  margin-bottom: 1em;
 }
 
+/* items  */
 
+.items {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.items > p {
+  padding-right: 2em;
+}
 .menu_items_container {
   margin-top: 2em;
   display: grid;
@@ -152,3 +186,352 @@
 .price {
   margin-top: 1em;
 }
+
+.footer {
+  display: none;
+}
+
+
+/* hero  */
+
+.hero {
+  display: none;
+}
+
+.mobile_image_grid {
+  display: none;
+}
+
+/* box  */
+
+.box {
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+/* modal box */
+.hidden {
+  display: none;
+}
+.box {
+  display: grid;
+  position: sticky;
+  overflow: scroll;
+  top: 0;
+  min-height: auto;
+  width: 100%;
+  background: #f87575;
+  z-index: 999999999999;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  transition: all 1s linear;
+}
+
+.price_item {
+  font-size: 1.1em;
+  padding-top: .6em;
+}
+
+.pop_menu {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0;
+  background: black;
+  width: 80%;
+  padding: 1em;
+}
+
+.intro_pop {
+  background: black;
+  padding: 1em;
+  color: white;
+  font-size: 1.1em;
+  letter-spacing: 1px;
+  margin-bottom: 1em;
+  width: 100%;
+
+
+}
+
+.intro_pop_container {
+ padding: 1em;
+}
+
+.menu_pop_text {
+  margin-bottom: 1em;
+  font-size: 2em;
+  color: white;
+  letter-spacing: 2px;
+
+}
+
+.white {
+   color: white ;
+   flex-grow: 1;
+   text-align: right;
+   font-weight: 100;
+   font-size: 1.2em;
+}
+
+.call_pop {
+  color: white;
+  text-align: center;
+}
+
+/* logo pop */
+.logo_cont_pop {
+  display: flex;
+}
+
+
+
+.icon_new {
+  fill: white;
+ z-index: 999999999999;
+ position: absolute;
+ top: 0;
+ height: 100px;
+ width: 100px;
+ right: 1em;
+}
+.phone_pop {
+  color: black;
+  font-size: 1.1em;
+  border: 1px solid white;
+  padding: .8em 1.2em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.border_one {
+  border-bottom: 2px solid white;
+  transform: rotate(45deg);
+}
+
+.border_two {
+  transform: rotate(-45deg);
+  border-top: 2px solid white;
+}
+
+.close_box {
+  position: absolute;
+  top: 2em;
+  right: 1em;
+  z-index: 999999999999999;
+  height: 50px;
+  width: 40px;
+}
+
+.price_pop {
+  margin-top: 2em;
+  color: white;
+  font-size: 1.2em;
+}
+
+/* pop  */
+
+.pop_items {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
+  color: white;
+}
+
+/* icon  */
+.icon_image {
+  height: 40px;
+  justify-self: flex-end;
+  margin-top: 1.5em; 
+  margin-bottom: 1.5em;
+}
+
+/* footer on the pop up */
+.pop_footer {
+  height: 100px;
+  width: 100vw;
+  background: black;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* .side_bar {
+  min-height: 100vh;
+  color: black;
+  background: #f87575;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+
+} */
+
+/* media Query */
+
+@media screen and (max-width: 1400px) { 
+  .side_bar {
+    width: 125px;
+  }
+  .image_grid {
+    margin-left: 150px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .mobile_image_grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-top: 2em;
+  }
+  .main {
+    flex-direction: column;
+  }
+  .pop_menu {
+    width: 100%;
+  }
+  .side_bar {
+    max-height:70px !important;
+    width: 100vw !important;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 2em;
+    position: static;
+  }
+
+  .logo_mine {
+    position: static;
+  }
+
+  .menu_heading {
+    font-size: 3.5em;
+
+  }
+
+  .nav_bar {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .main_content {
+    flex-direction: column;
+  }
+  .image_grid {
+    display: none;
+  }
+
+  .event {
+    margin-right: 0;
+    margin-left: 0;
+    padding: 1em;
+    margin-top: -2em;
+  }
+  .main_second {
+    margin-top: 2em;
+    width: 100%;
+  }
+  .event {
+    width: 95%;
+    margin-bottom: 2em;
+  }
+  .footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: static;
+    bottom: 0;
+    height: 80px;
+    background:#f87575;
+    width: 100%;
+    margin-top:2em;
+  }
+
+  .footer > img { 
+    height: 40px;
+  }
+  .hero {
+    display: block;
+    background-image: url('/todd-quackenbush-x5SRhkFajrA-unsplash\(1\).jpg');
+    background-position: center center;
+    background-size: cover;
+    height: 200px;
+    color: white;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero_text {
+    color: white;
+    font-size: 1.5em;
+    letter-spacing: 2px;
+  }
+
+  .order_btn {
+    margin-bottom: 2em;
+    margin-left: 2em;
+  }
+}
+
+@media screen and (max-width: 800px ) { 
+  .pop_items {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+@media screen and (max-width: 400px) {
+  .event {
+    width: 100%;
+    margin-left: 0;
+    height: auto;
+    padding-left: .2em;
+    padding-right: .2em;
+  }
+
+  .pop_menu {
+    width: 95%;
+  }
+
+  
+
+  .order_btn {
+    margin-bottom: 1em;
+    margin-left: 1em;
+  }
+  .footer {
+    height: 80px;
+    background:#f87575;
+    width: 100%;
+    position: relative;
+    margin-top:2em;
+  }
+
+  .menu {
+    width: 90%;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-bottom: 1em;
+  }
+  .mobile_image_grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-top: 2em;
+  }
+  .mobile_image_grid > img {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+   border-bottom: 3px solid #f87575;
+  }
+}
+
