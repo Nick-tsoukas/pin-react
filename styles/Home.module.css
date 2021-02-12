@@ -432,13 +432,14 @@
     margin-left: 0;
     padding: 1em;
     margin-top: -2em;
+
   }
   .main_second {
     margin-top: 2em;
     width: 100%;
   }
   .event {
-    width: 95%;
+    width: 70%;
     margin-bottom: 2em;
   }
   .footer {
