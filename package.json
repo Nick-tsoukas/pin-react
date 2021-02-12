@@ -18,6 +18,7 @@
     "tailwindcss": "^2.0.3"
   },
   "devDependencies": {
+    "@netlify/plugin-nextjs": "^2.0.0",
     "frontmatter-markdown-loader": "^3.6.2"
   }
 }
