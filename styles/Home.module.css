@@ -14,7 +14,9 @@
 .point:hover {
   cursor: pointer;
 }
-
+.red {
+  color: red;
+}
 .side_bar {
   height: 100vh;
   color: black;
@@ -78,6 +80,24 @@
   height: 150px;
   width: 150px;
   background-image: url('../public/food_1.jpg');
+  background-position: center center;
+  background-size: cover;
+  border-bottom: 2px solid #f87575;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);  
+}
+.img_3 {
+  height: 150px;
+  width: 150px;
+  background-image: url('../public/food_3.jpg');
+  background-position: center center;
+  background-size: cover;
+  border-bottom: 2px solid #f87575;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);  
+}
+.img_4 {
+  height: 150px;
+  width: 150px;
+  background-image: url('../public/food_4.jpg');
   background-position: center center;
   background-size: cover;
   border-bottom: 2px solid #f87575;
@@ -238,8 +258,10 @@
   flex-direction: column;
   margin-top: 0;
   background: black;
-  width: 80%;
-  padding: 1em;
+  width: 65%;
+  padding: 2em;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+
 }
 
 .intro_pop {
@@ -250,6 +272,8 @@
   letter-spacing: 1px;
   margin-bottom: 1em;
   width: 100%;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+
 
 
 }
@@ -355,6 +379,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+
 }
 
 
@@ -428,9 +454,10 @@
   }
 
   .event {
-    margin-right: 0;
-    margin-left: 0;
-    padding: 1em;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 3em 1em;
     margin-top: -2em;
 
   }
@@ -485,6 +512,12 @@
 @media screen and (max-width: 800px ) { 
   .pop_items {
     grid-template-columns: 1fr;
+  }
+  .event {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+
   }
 }
 

@@ -1,13 +1,38 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Post from '../components/Post'
+
+const client = require('contentful').createClient({
+  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
+  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
+})
+
 
 // taks fix footer add icons 
 //  Make sure moblie resposive
 //  Add one thing about them
 // add Netily css now
 export default function Home() {
+
+  async function fetchEntries() {
+    const entries = await client.getEntries()
+    if (entries.items) return entries.items
+    console.log(`Error getting Entries for ${contentType.name}.`)
+  }
+
+  useEffect(() => {
+    async function getPosts() {
+      const allPosts = await fetchEntries();
+      setPosts([...allPosts[0].fields.itemName]);
+      setPrice([allPosts[0].fields.price]);
+    }
+    getPosts()
+  }, [])
+
+  const [posts, setPosts] = useState([])
+  const [price, setPrice ] = useState('')
  
   const [isHidden, setIsHidden ] = useState(true);
   const scrollTop = () =>{
@@ -35,6 +60,7 @@ export default function Home() {
 
       </Head>
     {/* pop up box */}
+
       <div className={`${isHidden ? styles.hidden : styles.box }`} >
         <div className={styles.intro_pop}>
           <div className={styles.logo_cont_pop}>
@@ -44,39 +70,20 @@ export default function Home() {
        
          
         <div className={styles.intro_pop_container}>
-        <p>Whould you like to order our prefix menu. It's 50 dollars and we will accept cash or venmo</p>
+        <p>Whould you like to order our prefix menu. It's ${price} dollars and we will accept cash or venmo</p>
         </div>
        
         </div>
         <div className={styles.pop_menu}>
           <h2 className={styles.menu_pop_text}>MENU</h2>
           <div className={styles.pop_items}>
-            <div>
-            <p>Waffled Hash Brown Breakfast Sandwich</p>
-            <p className={styles.price_item}>$10.00</p>
-            </div>
-            <div>
-            <p>Hickory Pulled Pork Fries</p>
-            <p className={styles.price_item}>$10.00</p>
-            </div>
-            <div>
-            <p>Mexi-Cheese Lava Fry Tower</p>
-            <p className={styles.price_item}>$10.00</p>
-            </div>
-            <div>
-            <p>Roasted Garlic Spinach Artichoke Dip</p>
-            <p className={styles.price_item}>$10.00</p>
-            </div>
-            <div>
-            <p>Southwest Queso</p>
-            <p className={styles.price_item}>$10.00</p>
-            </div>
-            <div>
-            <p>Mexi-Cheese Lava Fry Tower</p>
-            <p className={styles.price_item}>$10.00</p>
-            </div>
+          {posts.length > 0
+           ? posts.map((p) => (
+             <p>{p}</p>
+            ))
+          : null}
           </div>
-          <h2 className={styles.price_pop}>$10.00</h2>
+          <h2 className={styles.price_pop}>${price}</h2>
         </div>
         <div>
           <img className={styles.icon_image} src="./instagram.png" alt=""/>
@@ -114,11 +121,11 @@ export default function Home() {
               <div className={styles.grid_four}>
 
               <div className={styles.img_1}></div>
+              <div className={styles.img_4}></div>
+              <div className={styles.img_3}></div>
+              <div className={styles.img_4}></div>
               <div className={styles.img_1}></div>
-              <div className={styles.img_1}></div>
-              <div className={styles.img_1}></div>
-              <div className={styles.img_1}></div>
-              <div className={styles.img_1}></div>
+              <div className={styles.img_3}></div>
 
               </div>
               
@@ -131,33 +138,14 @@ export default function Home() {
                   <h2 className={styles.date}>Febuary 8th</h2>
                   <div className={styles.border_date}></div>
                   <div className={styles.pop_items}>
-            <div>
-            <p>Waffled Hash Brown Breakfast Sandwich</p>
-            <p className={styles.price_item}>$10.00</p>
-            </div>
-            <div>
-            <p>Hickory Pulled Pork Fries</p>
-            <p className={styles.price_item}>$10.00</p>
-            </div>
-            <div>
-            <p>Mexi-Cheese Lava Fry Tower</p>
-            <p className={styles.price_item}>$10.00</p>
-            </div>
-            <div>
-            <p>Roasted Garlic Spinach Artichoke Dip</p>
-            <p className={styles.price_item}>$10.00</p>
-            </div>
-            <div>
-            <p>Southwest Queso</p>
-            <p className={styles.price_item}>$10.00</p>
-            </div>
-            <div>
-            <p>Mexi-Cheese Lava Fry Tower</p>
-            <p className={styles.price_item}>$10.00</p>
-            </div>
-          </div>
+                  {posts.length > 0
+                    ? posts.map((p) => (
+                    <p>{p}</p>
+                    ))
+                   : null}
+                  </div>
                   <div className={styles.price}>
-                    <p>$120.00</p>
+                    <p>${price}</p>
                   </div>
                   </div>
                 </div>
@@ -174,9 +162,9 @@ export default function Home() {
             <img src="food_1.jpg" alt=""/>
         </section>
         <footer className={styles.footer}>
-        <Link href="https://google.com">
+        <a href="https://instagram.com">
         <img  className={styles.point} src="./instagram.png" alt=""/>
-        </Link>
+        </a>
         </footer>
       </main>
 
