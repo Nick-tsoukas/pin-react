@@ -9,7 +9,7 @@ import React, { useState } from 'react';
 //  Add one thing about them
 // add Netily css now
 export default function Home() {
-  let { title, cats } = attributes;
+ 
   const [isHidden, setIsHidden ] = useState(true);
   const scrollTop = () =>{
     window.scrollTo({top: 0, behavior: 'smooth'});
