@@ -3,6 +3,9 @@ import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 import React, { useState, useEffect } from 'react';
 import Post from '../components/Post'
+import Moment from 'react-moment';
+
+Moment.globalFormat = 'D MMM YYYY';
 
 const client = require('contentful').createClient({
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
@@ -25,14 +28,17 @@ export default function Home() {
   useEffect(() => {
     async function getPosts() {
       const allPosts = await fetchEntries();
+      console.log(allPosts)
       setPosts([...allPosts[0].fields.itemName]);
       setPrice([allPosts[0].fields.price]);
+      setDate([allPosts[0].fields.date])
     }
     getPosts()
   }, [])
 
   const [posts, setPosts] = useState([])
-  const [price, setPrice ] = useState('')
+  const [price, setPrice ] = useState('');
+  const [date, setDate ] = useState('');
  
   const [isHidden, setIsHidden ] = useState(true);
   const scrollTop = () =>{
@@ -76,7 +82,9 @@ export default function Home() {
         </div>
         <div className={styles.pop_menu}>
           <h2 className={styles.menu_pop_text}>MENU</h2>
-          <div className={styles.pop_items}>
+          <h2 className={styles.date}>  <Moment style={{color: 'white'}}>{date}</Moment></h2>
+          
+          <div style={{marginTop: '2em'}} className={styles.pop_items}>
           {posts.length > 0
            ? posts.map((p) => (
              <p>{p}</p>
@@ -86,7 +94,9 @@ export default function Home() {
           <h2 className={styles.price_pop}>${price}</h2>
         </div>
         <div>
+          <a href="https://instagram.com" target="_blank">
           <img className={styles.icon_image} src="./instagram.png" alt=""/>
+          </a>
         </div>
         <div className={styles.call_pop}>
          
@@ -130,12 +140,13 @@ export default function Home() {
               </div>
               
             </div>
+            {/* menu on full screen */}
             <section className={styles.main_second}>
               <div className={styles.menu}>
                 <h1 className={styles.menu_heading}>MENU</h1>
                 <div className={styles.event}>
                   <div className={styles.inner_event}>
-                  <h2 className={styles.date}>Febuary 8th</h2>
+                  <h2 className={styles.date}>  <Moment>{date}</Moment></h2>
                   <div className={styles.border_date}></div>
                   <div className={styles.pop_items}>
                   {posts.length > 0
@@ -149,7 +160,25 @@ export default function Home() {
                   </div>
                   </div>
                 </div>
+                <div className={styles.order_btn_container }>
                 <button onClick={tog}  className={styles.order_btn}>Order Now</button>
+                <div className={styles.contact_box}>
+                    <div className={styles.flex_container}>
+                    <img style={{height: '15px', paddingRight: '.5em'}}  src="./phone-call.png" alt="phone icon" />
+                    <p>777-888-8888</p>
+                    </div>
+                    <div className={styles.flex_container}>
+                    <img style={{height: '15px', paddingRight: '.5em'}} src="./map.png" alt="map icon" />
+                    <p>Chicago, IL</p>
+                    </div>
+                    <div className={styles.flex_container}>
+                    <img style={{height: '15px', paddingRight: '.5em'}}  src="./instagram.png" alt="instagram icon" />
+                    <p>Instagram</p>
+                    </div>
+                </div>
+                
+                </div>
+                
               </div>
             </section>
         </section>
